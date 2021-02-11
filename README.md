@@ -8,17 +8,6 @@ We trained each restoration network with three different perceptual loss functio
     * Perceptual Loss Model 2 : Based on our experiment investigating the sensitivity of each of the five ReLUs, we assign the following weights to them: 2, 4, 5, 6, 6. In other words, we give some weight to the first two layers, which were previously ignored, and progressively increase the weights for deeper layers. Again, we use MAE as the distance measure for both style loss and content loss. 
     * Perceptual Loss Model 3: We train with the weights of Model 2, and also add our own distance metric - SSIM loss with a window size of 5 by 5 pixels. We use the SSIM loss as a distance measure between the prediction and target images, as well as the distance function in the content loss term; for the style loss term, we use MAE, and we also measure the MAE distance between the target and the prediction. 
 
-We train the same architecture with a simple per-pixel mean square error loss as a baseline.
-
-
-|           | SSIM of Predictions on dustified images |      | SSIM of Predictions on clean images |      |
-|-----------|-----------------------------------------|------|-------------------------------------|------|
-|           | Mean                                    | SD   | Mean                                | SD   |
-| MSE Model | 0.84                                    | 0.07 | 0.95                                | 0.04 |
-| Model 1   | 0.80                                    | 0.08 | 0.77                                | 0.08 |
-| Model 2   | 0.88                                    | 0.05 | 0.94                                | 0.04 |
-| Model 3   | 0.88                                    | 0.05 | 0.98                                | 0.02 |
-
 ## Examples of dust removal by our models
 
 | Input                                                   | Model 1 Prediction                                        | Model 2 Prediction                                   | Model 3 Prediction                                              | Target                                                      |
